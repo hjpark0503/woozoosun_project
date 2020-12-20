@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161B73"
+    android:padding="20dp"
+    tools:context=".HomeActivity">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+      <TextView
+          android:id="@+id/textView4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/font3"
+          android:text="ㅇㅇㅇ님의 우주선"
+          android:textStyle="bold"
+          android:textColor="#FFFFFF"
+          android:padding = "5dp"
+          android:layout_margin="5dp"
+          android:textSize="20sp"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="10dp"
+          android:background="@drawable/round_layout"
+          android:orientation="vertical"
+          android:padding="20dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/giftBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gift2" />
+
+            <ImageButton
+                android:id="@+id/heartBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/heart2" />
+
+            <ImageButton
+                android:id="@+id/starBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star" />
+          </TableRow>
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Gift"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Wish"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Bookmark"
+                android:textSize="12sp" />
+          </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+          <TextView
+              android:id="@+id/textView9"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:text="Address Book" />
+
+          <Button
+              android:id="@+id/addressbtn1"
+              style="?android:attr/borderlessButtonStyle"
+              android:layout_width="match_parent"
+              android:layout_height="35dp"
+              android:layout_marginBottom="5dp"
+              android:background="@drawable/stroke_layout"
+              android:text="사용자가 회원가입시 입력한 주소1" />
+
+          <Button
+              android:id="@+id/addressbtn2"
+              style="?android:attr/borderlessButtonStyle"
+              android:layout_width="match_parent"
+              android:layout_height="35dp"
+              android:layout_marginBottom="5dp"
+              android:background="@drawable/stroke_layout"
+              android:text="사용자가 회원가입시 입력한 주소2" />
+
+          <Button
+              android:id="@+id/addressbtn3"
+              style="?android:attr/borderlessButtonStyle"
+              android:layout_width="match_parent"
+              android:layout_height="35dp"
+              android:background="@drawable/stroke_layout"
+              android:text="사용자가 회원가입시 입력한 주소3" />
+        </LinearLayout>
+
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/textView5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/font3"
+          android:text="친구에게 보낼 우주선"
+          android:textStyle="bold"
+          android:textColor="#FFFFFF"
+          android:padding = "5dp"
+          android:layout_margin="5dp"
+          android:textSize="20sp"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@drawable/round_layout"
+          android:orientation="vertical"
+          android:padding="20dp">
+
+        <SearchView
+            android:id="@+id/search_friend"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search your friend!" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/userBtn1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user" />
+
+            <ImageButton
+                android:id="@+id/userBtn2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user" />
+
+            <ImageButton
+                android:id="@+id/userBtn3"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user" />
+
+            <ImageButton
+                android:id="@+id/userBtn4"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user" />
+          </TableRow>
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+
+            <TextView
+                android:id="@+id/userName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="박현진"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/userName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="김민령"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/userName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="남승경"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/userName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="황지원"
+                android:textSize="12sp" />
+
+          </TableRow>
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+
+          <TableRow
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+        </TableLayout>
+
+      </LinearLayout>
+
+    </LinearLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
