@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#161B73"
-    android:padding="20dp"
     tools:context=".HomeActivity">
 
   <ScrollView
@@ -16,7 +15,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="20dp">
 
       <TextView
           android:id="@+id/textView4"
@@ -183,7 +183,7 @@
               android:gravity="center">
 
             <ImageButton
-                android:id="@+id/userBtn1"
+                android:id="@+id/friendBtn1"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
@@ -191,7 +191,7 @@
                 android:src="@drawable/user" />
 
             <ImageButton
-                android:id="@+id/userBtn2"
+                android:id="@+id/friendBtn2"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -199,7 +199,7 @@
                 android:src="@drawable/user" />
 
             <ImageButton
-                android:id="@+id/userBtn3"
+                android:id="@+id/friendBtn3"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -207,7 +207,7 @@
                 android:src="@drawable/user" />
 
             <ImageButton
-                android:id="@+id/userBtn4"
+                android:id="@+id/friendBtn4"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="70dp"

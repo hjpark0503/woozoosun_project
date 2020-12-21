@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161B73"
+
+    tools:context=".FriendSendActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font3"
+                android:text="친구 ㅇㅇㅇ님의 우주선"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:padding = "5dp"
+                android:layout_margin="5dp"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_layout"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+
+                        <ImageButton
+                            android:id="@+id/friendHeartBtn"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/heart2" />
+
+                        <ImageButton
+                            android:id="@+id/friendStarBtn"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/star" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Wish"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Bookmark"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Address Book" />
+
+                        <Button
+                            android:id="@+id/friendAddressbtn1"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/stroke_layout"
+                            android:text="친구가 회원가입시 입력한 주소1" />
+
+                        <Button
+                            android:id="@+id/friendAddressbtn2"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/stroke_layout"
+                            android:text="친구가 회원가입시 입력한 주소2" />
+
+                        <Button
+                            android:id="@+id/friendAddressbtn3"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@drawable/stroke_layout"
+                            android:text="친구가 회원가입시 입력한 주소3" />
+                    </LinearLayout>
+                </TableLayout>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font3"
+                android:text="친구가 선택한 주소1"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:padding = "5dp"
+                android:layout_margin="5dp"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_layout"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="BEST LIST"
+                        android:textColor="#000000"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/numTextView"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:text="1"
+                            android:gravity="center"/>
+
+                        <Button
+                            android:id="@+id/bestBtn"
+                            android:layout_width="match_parent"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/food_drawable"
+                            android:text="인사이드커피 바닐라라떼\n5,000원" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/numTextView2"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:text="2"
+                            android:gravity="center"/>
+
+                        <Button
+                            android:id="@+id/bestBtn2"
+                            android:layout_width="match_parent"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/food_drawable"
+                            android:text="그레시헤이 초콜릿라떼\n4,500원" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/numTextView3"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:text="3"
+                            android:gravity="center"/>
+
+                        <Button
+                            android:id="@+id/bestBtn3"
+                            android:layout_width="match_parent"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/food_drawable"
+                            android:text="자스민커피 매실차\n5,000원" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/numTextView4"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:text="4"
+                            android:gravity="center"/>
+
+                        <Button
+                            android:id="@+id/bestBtn4"
+                            android:layout_width="match_parent"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/food_drawable"
+                            android:text="요거스빈 요거트스무디\n4,000원" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/numTextView5"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:text="5"
+                            android:gravity="center"/>
+
+                        <Button
+                            android:id="@+id/bestBtn5"
+                            android:layout_width="match_parent"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/food_drawable"
+                            android:text="카페몬순 아메리카노\n2,500원" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#DDDDDD"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="NEW LIST"
+                        android:textColor="#000000"/>
+
+                    <Button
+                        android:id="@+id/newBtn"
+                        android:layout_width="match_parent"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/food_drawable"
+                        android:text="인사이드커피 바닐라라떼\n5,000원" />
+                    <Button
+                        android:id="@+id/newBtn2"
+                        android:layout_width="match_parent"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/food_drawable"
+                        android:text="인사이드커피 바닐라라떼\n5,000원" />
+                    <Button
+                        android:id="@+id/newBtn3"
+                        android:layout_width="match_parent"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/food_drawable"
+                        android:text="인사이드커피 바닐라라떼\n5,000원" />
+                    <Button
+                        android:id="@+id/newBtn4"
+                        android:layout_width="match_parent"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/food_drawable"
+                        android:text="인사이드커피 바닐라라떼\n5,000원" />
+                    <Button
+                        android:id="@+id/newBtn5"
+                        android:layout_width="match_parent"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/food_drawable"
+                        android:text="인사이드커피 바닐라라떼\n5,000원" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#DDDDDD"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="BRAND"
+                        android:textColor="#000000"/>
+                    <TextView
+                        android:id="@+id/brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="식품" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/foodBrandBtn"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+
+                        <ImageButton
+                            android:id="@+id/foodBrandBtn2"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+                        <ImageButton
+                            android:id="@+id/foodBrandBtn3"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/brand2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="소품" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+\
+                        <ImageButton
+                            android:id="@+id/productBrandBtn"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+
+                        <ImageButton
+                            android:id="@+id/productBrandBtn2"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+                        <ImageButton
+                            android:id="@+id/productBrandBtn3"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/brand3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="이용권" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/ticketBrandBtn"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+
+                        <ImageButton
+                            android:id="@+id/ticketBrandBtn2"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+                        <ImageButton
+                            android:id="@+id/ticketBrandBtn3"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/store" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
