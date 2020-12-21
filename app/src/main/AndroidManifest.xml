@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Woozoosun_project"
         android:usesCleartextTraffic="true">
+        <activity android:name=".JoinActivity" />
+        <activity android:name=".SearchIDActivity" />
+        <activity android:name=".SearchPWActivity" />
         <activity android:name=".UserAddressActivity"></activity>
         <activity android:name=".FriendSendActivity" />
         <activity android:name=".HomeActivity" />
