@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Friends {
+public class Friends_DB {
 
     String myJSON;
 
@@ -26,7 +26,7 @@ public class Friends {
     ArrayList personList;
     ListView list;
 
-    public Friends(String A){
+    public Friends_DB(String A){
         personList = new ArrayList();
         getData("http://49.50.165.159/woozoosun/friends.php?id="+A);
     }
