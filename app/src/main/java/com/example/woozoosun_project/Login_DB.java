@@ -12,37 +12,34 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Join_DB extends AsyncTask<Void, Integer, Void> {
+public class Login_DB extends AsyncTask<Void, Integer, Void> {
 
     boolean flag = false;
-    String result = "";
+    private String result = "";
 
-    String name = "";
     String id = "";
     String pw = "";
-    String phone = "";
-    String addr1 = "";
-    String addr2 = "";
-    String addr3 = "";
 
-    public Join_DB(String name, String id, String pw, String phone, String addr1, String addr2, String addr3){
-        this.name = name;
+    public Login_DB(String id, String pw){
         this.id = id;
         this.pw = pw;
-        this.phone = phone;
-        this.addr1 = addr1;
-        this.addr2 = addr2;
-        this.addr3 = addr3;
+    }
+
+    public String get_name(){
+        return result;
+    }
+    public String get_id(){
+        return id;
     }
 
     @Override
     protected Void doInBackground(Void... unused) {
 
         //parameter data
-        String param = "name=" + name + "&id=" + id + "&pw=" + pw + "&phone=" + phone + "&address=" + addr1 + "&address2=" + addr2 + "&address3=" + addr3 + "";
+        String param = "id=" + id + "&pw=" + pw + "";
         try {
             /* 서버연결 */
-            URL url = new URL("http://49.50.165.159/woozoosun/join.php");
+            URL url = new URL("http://49.50.165.159/woozoosun/login.php");
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
@@ -72,6 +69,10 @@ public class Join_DB extends AsyncTask<Void, Integer, Void> {
             data = buff.toString().trim();
             Log.e("RECV DATA",data);
             result = data;
+            if(result.equals("error")){
+                id = null;
+                result = null;
+            }
             flag = true;
         } catch (MalformedURLException e) {
             e.printStackTrace();
