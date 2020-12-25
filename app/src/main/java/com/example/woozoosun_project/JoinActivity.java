@@ -1,13 +1,78 @@
 package com.example.woozoosun_project;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class JoinActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("시작", "join activity 시작 ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
+        Button join_completeBtn = (Button) findViewById(R.id.join_completeBtn);
+        join_completeBtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name, id, pw, pwCheck, phone, addr1, addr2, addr3;
+
+                EditText text = (EditText) findViewById(R.id.join_name) ;
+                name = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_id) ;
+                id = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_pw) ;
+                pw = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_pwCheck) ;
+                pwCheck = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_phone) ;
+                phone = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_address1) ;
+                addr1 = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_address2) ;
+                addr2 = text.getText().toString() ;
+                text = (EditText) findViewById(R.id.join_address3) ;
+                addr3 = text.getText().toString() ;
+
+//                checkPhone(phone);
+//                checkPW(pw,pwCheck);
+//                nullCheck(id,pw,name,addr1);
+//
+                if(checkPhone(phone)&&checkPW(pw,pwCheck)&&nullCheck(id,pw,name,addr1)){
+                    int phoneNum;
+                    phoneNum=Integer.parseInt(phone);
+                    if(addr2==null)
+                        addr2="";
+                    if(addr3==null)
+                        addr3="";
+
+                    Join_DB joinDB = new Join_DB(name, id, pw, phoneNum, addr1, addr2, addr3);
+                    joinDB.execute();
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+                    builder.setTitle("회원가입이 완료되었습니다.\n"); // AlertDialog.builder를 통해 Title text를 입력
+                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            onBackPressed();
+                            //확인 버튼 클릭 시 동작
+                        }
+                    });
+                    AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+                    dialog.show(); // dialog를 화면에 뿌려 줌
+
+                }
+
+
+            }
+        });
         /*회원가입 DB manual
         회원가입 버튼 클릭시 실행해야함!
         Join_DB 객체 생성하고 new Join_DB(파라미터 값)
@@ -20,5 +85,83 @@ public class JoinActivity extends AppCompatActivity {
         //그외 패스워드 2개 확인하는거, null값인지 아닌지 확인하는거는 DB에서 못하고 코드로 먼저 검사해야해욤
         //혹시 코드 다 만들면 DB에 들어갔는지 확인해야하니까 실행 해보지 말고 알려주333
          */
+    }
+    public boolean nullCheck(String id, String pw, String name, String addr1){
+        if(id.equals("")||pw.equals("")||name.equals("")||addr1.equals("")){
+                AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+                builder.setTitle("정보를 모두 입력해주십시오.\n(주소2,3은 선택사항)"); // AlertDialog.builder를 통해 Title text를 입력
+                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //확인 버튼 클릭 시 동작
+                    }
+                });
+                AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+                dialog.show(); // dialog를 화면에 뿌려 줌
+
+            return false;
+        }
+        return true;
+    }
+    public boolean checkPW(String pw, String pwCheck){
+        if(!pw.equals(pwCheck)){
+            AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+            builder.setTitle("비밀번호 확인을 동일하게 입력해주십시오."); // AlertDialog.builder를 통해 Title text를 입력
+            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //확인 버튼 클릭 시 동작
+                }
+            });
+            AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+            dialog.show(); // dialog를 화면에 뿌려 줌
+
+            return false;
+        }
+
+        return true;
+    }
+    public boolean checkPhone(String phone){//전화번호 길이, 타입 확인해서 오류 메시지 띄움, 오류 없을 시 true 반환
+
+            if(phone.length()!=11) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+                builder.setTitle("전화번호를 다시 입력해주십시오."); // AlertDialog.builder를 통해 Title text를 입력
+                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        EditText phone = (EditText) findViewById(R.id.join_phone);
+                        phone.setText("");
+                    }
+                });
+                AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+                dialog.show(); // dialog를 화면에 뿌려 줌
+
+                return false;
+            }
+
+
+        try {//int 타입이 아니면 오류 메시지
+            for(int i = 0; i < 11; i++) {
+                int j = Integer.parseInt(phone);
+                System.out.println(j);
+            }
+        }
+        catch(NumberFormatException e) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+            builder.setTitle("전화번호를 다시 입력해주십시오."); // AlertDialog.builder를 통해 Title text를 입력
+            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    EditText phone = (EditText) findViewById(R.id.join_phone);
+                    phone.setText("");
+                }
+            });
+            AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+            dialog.show(); // dialog를 화면에 뿌려 줌
+            return false;
+        }
+
+            return true;
+
     }
 }
