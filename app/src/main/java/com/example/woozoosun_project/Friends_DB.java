@@ -20,7 +20,7 @@ public class Friends_DB extends Thread{
 
 
     boolean flag = false;
-    List list = new ArrayList();
+    List<String> list = new ArrayList();
     String name = "";
 
     public Friends_DB(String A){
