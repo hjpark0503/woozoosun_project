@@ -31,7 +31,6 @@ public class Friends_DB extends Thread{
         try {
             JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/friends.php?id="+name);
             friends(json.toString());
-            System.out.println("Friends_DB");
             flag = true;
         } catch (IOException e) {
             e.printStackTrace();

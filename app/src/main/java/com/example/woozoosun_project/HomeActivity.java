@@ -24,10 +24,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        /*
+        //ID_check 회원가입시 id 중복 check
+        ID_check test = new ID_check("가입할 id");
+        test.execute();
+        while(test.flag == false){}
+        String result = test.result;
+        //id 중복 시 result = "error" / 중복 X result = "pass"
+         */
 
         /*
         //Login_DB 로그인
-        Login_DB test = new Login_DB("아이디", "비밀번호");
+        Login_DB test = new Login_DB("name", "park");
         test.execute(); //이거 꼭 해줘야 디비 데이터랑 비교가능
         while(test.flag == false){}
         String user_name = get_name(); //로그인한 유저 이름
@@ -61,14 +69,15 @@ public class HomeActivity extends AppCompatActivity {
         //주소 빼고 나머지 다 string임
          */
 
+
         /*
         //Friends_DB 친구이름 리스트 (수정)
-        Friends_DB friends = new Friends_DB("사용자 id");
+        Friends_DB friends = new Friends_DB("ryeong");
         friends.start();
         while(friends.flag == false){}
-        List list = friends.list;
+        List<String> list = friends.list;
         //list에 친구목록 담겨있음 사용자 id 외에 나머지는 바꿀필요 X
-        */
+         */
 
         addressbtn1 = findViewById(R.id.addressbtn1);
         addressbtn1.setOnClickListener(new View.OnClickListener() {  //사용자 주소 버튼 눌렀을 때
