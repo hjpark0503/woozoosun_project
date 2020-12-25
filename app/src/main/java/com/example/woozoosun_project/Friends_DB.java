@@ -1,92 +1,76 @@
 package com.example.woozoosun_project;
 
-
 import android.os.AsyncTask;
 
-import android.widget.ListView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
+public class Friends_DB extends Thread{
 
-public class Friends_DB {
 
-    String myJSON;
-
-    private static final String TAG_RESULTS = "result";
-    private static final String TAG_B = "friend";
-
-    JSONArray peoples = null;
-    ArrayList personList;
-    ListView list;
+    boolean flag = false;
+    List list = new ArrayList();
+    String name = "";
 
     public Friends_DB(String A){
-        personList = new ArrayList();
-        getData("http://49.50.165.159/woozoosun/friends.php?id="+A);
+        name = A;
     }
 
-    protected ArrayList showList() {
+    public void run(){
         try {
-            JSONObject jsonObj = new JSONObject(myJSON);
-            peoples = jsonObj.getJSONArray(TAG_RESULTS);
-            for (int i = 0; i < peoples.length(); i++) {
-                JSONObject c = peoples.getJSONObject(i);
-                String name = c.getString(TAG_B);
-
-                personList.add(name);
-
-            }
-            return personList;
+            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/friends.php?id="+name);
+            friends(json.toString());
+            System.out.println("Friends_DB");
+            flag = true;
+        } catch (IOException e) {
+            e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-            return null;
         }
     }
 
-    public void getData(String url) {
-        class GetDataJSON extends AsyncTask<String, Void, String> {
-
-            @Override
-            protected String doInBackground(String... params) {
-
-                String uri = params[0];
-
-                BufferedReader bufferedReader = null;
-                try {
-                    URL url = new URL(uri);
-                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                    StringBuilder sb = new StringBuilder();
-
-                    bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-
-                    String json;
-                    while ((json = bufferedReader.readLine()) != null) {
-                        sb.append(json + "\n");
-                    }
-
-                    return sb.toString().trim();
-
-                } catch (Exception e) {
-                    return null;
-                }
-
-
-            }
-
-            @Override
-            protected void onPostExecute(String result) {
-                myJSON = result;
-                showList();
-            }
+    public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+        InputStream is = new URL(url).openStream();
+        try {
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            String jsonText = readAll(rd);
+            JSONObject json = new JSONObject(jsonText);
+            return json;
+        } finally {
+            is.close();
         }
-        GetDataJSON g = new GetDataJSON();
-        g.execute(url);
     }
 
+    public void friends(String parse) {
+        try {
+            JSONObject jsonObject = new JSONObject(parse);
+            JSONArray jsonArray = jsonObject.getJSONArray("result");
+            for(int i=0; i < jsonArray.length(); i++){
+                JSONObject jsonob = jsonArray.getJSONObject(i);
+                String item = jsonob.getString("friend");
+                list.add(item);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    private static String readAll(Reader rd) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        int cp;
+        while ((cp = rd.read()) != -1) {
+            sb.append((char) cp);
+        }
+        return sb.toString();
+    }
 }
