@@ -172,15 +172,20 @@
             android:layout_marginBottom="10dp"
             android:iconifiedByDefault="false"
             android:queryHint="Search your friend!" />
+v
+
+
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
           <TableRow
+              android:id="@+id/TableRowPhoto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center">
+
 
             <ImageButton
                 android:id="@+id/friendBtn1"
@@ -216,12 +221,13 @@
           </TableRow>
 
           <TableRow
+              android:id="@+id/TableRowName"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center">
 
             <TextView
-                android:id="@+id/userName1"
+                android:id="@+id/friendName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -229,7 +235,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/userName2"
+                android:id="@+id/friendName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -237,7 +243,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/userName3"
+                android:id="@+id/friendName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -245,7 +251,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/userName4"
+                android:id="@+id/friendName4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.498">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/editTextPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -31,7 +31,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
