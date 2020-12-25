@@ -21,15 +21,15 @@ public class Friends_DB extends Thread{
 
     boolean flag = false;
     List<String> list = new ArrayList();
-    String name = "";
+    String id = "";
 
     public Friends_DB(String A){
-        name = A;
+        id = A;
     }
 
     public void run(){
         try {
-            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/friends.php?id="+name);
+            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/friends.php?id="+id);
             friends(json.toString());
             flag = true;
         } catch (IOException e) {
@@ -50,6 +50,7 @@ public class Friends_DB extends Thread{
             is.close();
         }
     }
+
 
     public void friends(String parse) {
         try {

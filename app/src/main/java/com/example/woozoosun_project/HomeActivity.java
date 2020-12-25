@@ -45,14 +45,16 @@ public class HomeActivity extends AppCompatActivity {
 
         /*
         //Login_DB 로그인
-        Login_DB test = new Login_DB("name", "park");
+        Login_DB test = new Login_DB("park", "park");
         test.execute(); //이거 꼭 해줘야 디비 데이터랑 비교가능
         while(test.flag == false){}
-        String user_name = get_name(); //로그인한 유저 이름
-        String user_id = get_id(); //로그인한 유저의 id(친구목록 검색 등에 사용)
+        String user_name = test.get_name(); //로그인한 유저 이름
+        String user_id = test.get_id(); //로그인한 유저의 id(친구목록 검색 등에 사용)
+        //System.out.println(user_name);
         //id, pw 길이 검사 등은 다 코드에서 해야함
         //Login_DB 클래스는 오로지 id, pw를 디비와 비교해서 일치하는지 안하는지만 check
         //로그인 성공 실패 확인은 get_name()==null 이면 실패, 아니면 성공임(성공하면 이름이 리텀됨)
+
          */
 
 
