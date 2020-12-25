@@ -15,7 +15,6 @@ import java.net.URL;
 public class ID_check extends AsyncTask<Void, Integer, Void> {
 
     boolean flag = false;
-
     String result = "";
     String id = "";
 
