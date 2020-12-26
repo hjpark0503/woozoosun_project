@@ -10,12 +10,24 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class JoinActivity extends AppCompatActivity {
-
+    Button idCheckBtn;
+    boolean idFlag=false;//false = 중복
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("시작", "join activity 시작 ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
+
+        idCheckBtn = (Button) findViewById(R.id.join_idCheckBtn);
+        idCheckBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String id;
+                EditText text = (EditText) findViewById(R.id.join_id) ;
+                id = text.getText().toString() ;
+                idFlag = checkID(id);
+            }
+        });
 
         Button join_completeBtn = (Button) findViewById(R.id.join_completeBtn);
         join_completeBtn.setOnClickListener(new Button.OnClickListener() {
@@ -43,8 +55,9 @@ public class JoinActivity extends AppCompatActivity {
 //                checkPhone(phone);
 //                checkPW(pw,pwCheck);
 //                nullCheck(id,pw,name,addr1);
+
 //
-                if(checkPhone(phone)&&checkPW(pw,pwCheck)&&nullCheck(id,pw,name,addr1)){
+                if(checkPhone(phone)&&checkPW(pw,pwCheck)&&nullCheck(id,pw,name,addr1)&&idFlag){
                     if(addr2==null)
                         addr2="";
                     if(addr3==null)
@@ -66,6 +79,18 @@ public class JoinActivity extends AppCompatActivity {
                     dialog.show(); // dialog를 화면에 뿌려 줌
 
                 }
+                if(!idFlag){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+                    builder.setTitle("아이디 중복확인을 해주십시오."); // AlertDialog.builder를 통해 Title text를 입력
+                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //확인 버튼 클릭 시 동작
+                        }
+                    });
+                    AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+                    dialog.show(); // dialog를 화면에 뿌려 줌
+                }
 
 
             }
@@ -83,6 +108,9 @@ public class JoinActivity extends AppCompatActivity {
         //혹시 코드 다 만들면 DB에 들어갔는지 확인해야하니까 실행 해보지 말고 알려주333
          */
     }
+
+
+
     public boolean nullCheck(String id, String pw, String name, String addr1){
         if(id.equals("")||pw.equals("")||name.equals("")||addr1.equals("")){
             AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
@@ -97,6 +125,43 @@ public class JoinActivity extends AppCompatActivity {
             dialog.show(); // dialog를 화면에 뿌려 줌
 
             return false;
+        }
+        return true;
+    }
+
+    public boolean checkID(String id){
+        ID_check idCheck = new ID_check(id);
+        idCheck.execute();
+        while(idCheck.flag == false){}
+        String result = idCheck.result;
+
+        if(result.equals("error")){
+            idCheck.flag=false;
+            AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+            builder.setTitle("존재하는 아이디 입니다.\n다른 아이디를 입력해 주십시오."); // AlertDialog.builder를 통해 Title text를 입력
+            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //확인 버튼 클릭 시 동작
+                }
+            });
+            AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+            dialog.show(); // dialog를 화면에 뿌려 줌
+            return false;
+        }
+
+        if (result.equals("pass")){
+            AlertDialog.Builder builder = new AlertDialog.Builder(JoinActivity.this); // AlertDialog를 띄울 activity를 argument로 지정해야 한다.
+            builder.setTitle("사용이 가능한 아이디 입니다."); // AlertDialog.builder를 통해 Title text를 입력
+            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() { // AlertDialog.Builder에 Positive Button을 생성
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //확인 버튼 클릭 시 동작
+                }
+            });
+            AlertDialog dialog = builder.create(); // 위의 builder를 생성할 AlertDialog 객체 생성
+            dialog.show(); // dialog를 화면에 뿌려 줌
+            idFlag=true;
         }
         return true;
     }

@@ -18,7 +18,7 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/selectFriendName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font3"
@@ -101,30 +101,33 @@
                             android:text="Address Book" />
 
                         <Button
-                            android:id="@+id/friendAddressbtn1"
+                            android:id="@+id/friendAddressBtn1"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginBottom="5dp"
                             android:background="@drawable/stroke_layout"
-                            android:text="친구가 회원가입시 입력한 주소1" />
+                            android:text="친구가 회원가입시 입력한 주소1"
+                            android:visibility="invisible"/>
 
                         <Button
-                            android:id="@+id/friendAddressbtn2"
+                            android:id="@+id/friendAddressBtn2"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginBottom="5dp"
                             android:background="@drawable/stroke_layout"
-                            android:text="친구가 회원가입시 입력한 주소2" />
+                            android:text="친구가 회원가입시 입력한 주소2"
+                            android:visibility="gone"/>
 
                         <Button
-                            android:id="@+id/friendAddressbtn3"
+                            android:id="@+id/friendAddressBtn3"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:background="@drawable/stroke_layout"
-                            android:text="친구가 회원가입시 입력한 주소3" />
+                            android:text="친구가 회원가입시 입력한 주소3"
+                            android:visibility="gone"/>
                     </LinearLayout>
                 </TableLayout>
 
@@ -133,7 +136,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/friendAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font3"

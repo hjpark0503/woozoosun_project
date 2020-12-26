@@ -19,7 +19,7 @@
         android:padding="20dp">
 
       <TextView
-          android:id="@+id/textView4"
+          android:id="@+id/textViewName"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/font3"
@@ -118,36 +118,39 @@
               android:text="Address Book" />
 
           <Button
-              android:id="@+id/addressbtn1"
+              android:id="@+id/addressBtn1"
               style="?android:attr/borderlessButtonStyle"
               android:layout_width="match_parent"
               android:layout_height="35dp"
               android:layout_marginBottom="5dp"
               android:background="@drawable/stroke_layout"
-              android:text="사용자가 회원가입시 입력한 주소1" />
+              android:text="사용자가 회원가입시 입력한 주소1"
+              android:visibility="invisible"/>
 
           <Button
-              android:id="@+id/addressbtn2"
+              android:id="@+id/addressBtn2"
               style="?android:attr/borderlessButtonStyle"
               android:layout_width="match_parent"
               android:layout_height="35dp"
               android:layout_marginBottom="5dp"
               android:background="@drawable/stroke_layout"
-              android:text="사용자가 회원가입시 입력한 주소2" />
+              android:text="사용자가 회원가입시 입력한 주소2"
+              android:visibility="gone"/>
 
           <Button
-              android:id="@+id/addressbtn3"
+              android:id="@+id/addressBtn3"
               style="?android:attr/borderlessButtonStyle"
               android:layout_width="match_parent"
               android:layout_height="35dp"
               android:background="@drawable/stroke_layout"
-              android:text="사용자가 회원가입시 입력한 주소3" />
+              android:text="사용자가 회원가입시 입력한 주소3"
+              android:visibility="gone" />
         </LinearLayout>
 
       </LinearLayout>
 
       <TextView
-          android:id="@+id/textView5"
+          android:id="@+id/userAddress"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/font3"
@@ -193,7 +196,8 @@ v
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/user" />
+                android:src="@drawable/user"
+                android:visibility="invisible" />
 
             <ImageButton
                 android:id="@+id/friendBtn2"
@@ -201,7 +205,8 @@ v
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/user" />
+                android:src="@drawable/user"
+                android:visibility="invisible"/>
 
             <ImageButton
                 android:id="@+id/friendBtn3"
@@ -209,7 +214,8 @@ v
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/user" />
+                android:src="@drawable/user"
+                android:visibility="invisible"/>
 
             <ImageButton
                 android:id="@+id/friendBtn4"
@@ -217,7 +223,8 @@ v
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/user" />
+                android:src="@drawable/user"
+                android:visibility="invisible"/>
           </TableRow>
 
           <TableRow
@@ -232,7 +239,8 @@ v
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="박현진"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="invisible"/>
 
             <TextView
                 android:id="@+id/friendName2"
@@ -240,7 +248,8 @@ v
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="김민령"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="invisible"/>
 
             <TextView
                 android:id="@+id/friendName3"
@@ -248,7 +257,8 @@ v
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="남승경"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="invisible"/>
 
             <TextView
                 android:id="@+id/friendName4"
@@ -256,7 +266,8 @@ v
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="황지원"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="invisible"/>
 
           </TableRow>
 
