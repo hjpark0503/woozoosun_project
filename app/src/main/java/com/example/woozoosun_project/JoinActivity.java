@@ -52,16 +52,22 @@ public class JoinActivity extends AppCompatActivity {
                 text = (EditText) findViewById(R.id.join_address3) ;
                 addr3 = text.getText().toString() ;
 
+                Log.d("제발", addr2);
 //                checkPhone(phone);
 //                checkPW(pw,pwCheck);
 //                nullCheck(id,pw,name,addr1);
 
 //
                 if(checkPhone(phone)&&checkPW(pw,pwCheck)&&nullCheck(id,pw,name,addr1)&&idFlag){
-                    if(addr2==null)
-                        addr2="";
-                    if(addr3==null)
-                        addr3="";
+
+                    if(addr2.matches("")){
+                        addr2="null";
+                    }
+
+                    if(addr3.matches("")){
+                        addr3="null";
+                    }
+
 
                     Join_DB joinDB = new Join_DB(name, id, pw, phone, addr1, addr2, addr3);
                     joinDB.execute();

@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 userId = editTextPersonName.getText().toString(); //사용자가 입력한 아이디
                 System.out.println("사용자 입력 아이디"+userId);
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 //Login_DB 로그인
                 Login_DB test = new Login_DB(userId, userPw);
                 test.execute(); //이거 꼭 해줘야 디비 데이터랑 비교가능
+
                 while(test.flag == false){}
                 test.flag = false;
                 userName = test.get_name(); //로그인한 유저 이름 => 성공시 이름, 실패시 null
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("userId", userId); //사용자 아이디와 함께 화면전환
                     intent.putExtra("userName", userName); //사용자 이름과 함께 화면 전환
                     startActivity(intent);
+
                 }
                 else{ //로그인 실패하면
                     Toast.makeText(getApplicationContext(), "입력정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();

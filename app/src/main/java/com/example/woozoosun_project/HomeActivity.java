@@ -7,10 +7,13 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -31,6 +34,15 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton[] friendBtn;
     TextView[] friendName;
 
+    SearchView searchFriend;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +52,8 @@ public class HomeActivity extends AppCompatActivity {
         userId = intent.getStringExtra("userId"); //사용자 아이디
         userName = intent.getStringExtra("userName"); //사용자 이름
 
-        textViewName =findViewById(R.id.textViewName);
-        textViewName.setText(userName+" 님의 우주선");
+        textViewName = findViewById(R.id.textViewName);
+        textViewName.setText(userName + " 님의 우주선");
 
         /*
         //new_list 띄우기방법
@@ -55,6 +67,8 @@ public class HomeActivity extends AppCompatActivity {
         //인덱스별로 제품 똑같음!
          */
 
+
+
         /*
         //ID_check 회원가입시 id 중복 check
         ID_check test = new ID_check("가입할 id");
@@ -63,6 +77,8 @@ public class HomeActivity extends AppCompatActivity {
         String result = test.result;
         //id 중복 시 result = "error" / 중복 X result = "pass"
          */
+
+
 
         /*
         //Login_DB 로그인
@@ -98,16 +114,16 @@ public class HomeActivity extends AppCompatActivity {
         //Return_info_DB친구 정보 리턴
         Return_info_DB info = new Return_info_DB(userName); //사용자 정보 객체 생성
         info.start();
-        while(info.flag == false){}
+        while (info.flag == false) {
+        }
         info.flag = false;
         List<String> addressList = info.get_address(); //리스트로 리턴 됨 .get(0~2)
 
 
-
-        for(int i=0; i<3; i++){ //주소는 최대 3개까지
+        for (int i = 0; i < 3; i++) { //주소는 최대 3개까지
             String address = addressList.get(i);
-            System.out.println("주소"+address);
-            Log.d("주소",address);
+            System.out.println("주소" + address);
+            Log.d("주소", address);
             addressBtn[i].setVisibility(View.VISIBLE);
             addressBtn[i].setText(address);
 
@@ -120,8 +136,10 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
 
-            if(i+1 != 3){ //get(i+1) 오버플로우 안나기 위해서
-                if(addressList.get(i+1).equals("null")){ //다음 주소가 null이면
+            if (i + 1 != 3) { //get(i+1) 오버플로우 안나기 위해서
+                if (addressList.get(i + 1).equals("null")) { //다음 주소가 null이면
+                    Log.d("주소 null", address);
+
                     break;
                 }
             }
@@ -132,7 +150,8 @@ public class HomeActivity extends AppCompatActivity {
         //Friends_DB 친구 아이디 리스트 (수정)
         friends = new Friends_DB(userId);
         friends.start();
-        while(friends.flag == false){}
+        while (friends.flag == false) {
+        }
         list = friends.list;
         //list에 친구목록 담겨있음 사용자 id 외에 나머지는 바꿀필요 X
 
@@ -151,8 +170,7 @@ public class HomeActivity extends AppCompatActivity {
         friendName[3] = findViewById(R.id.friendName4);
 
 
-
-        for(int i=0; i<list.size(); i++){ //친구 수 만큼 반복
+        for (int i = 0; i < list.size(); i++) { //친구 수 만큼 반복
             String name = list.get(i);
             friendBtn[i].setVisibility(View.VISIBLE); //친구 목록 버튼 보이게
             friendName[i].setVisibility(View.VISIBLE); //친구 목록 텍스트 보이게
@@ -160,7 +178,7 @@ public class HomeActivity extends AppCompatActivity {
             friendName[i].setText(name); //친구 이름 목록에 띄우기
 
 
-           friendBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
+            friendBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, FriendSendActivity.class);
@@ -169,6 +187,72 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
         }
+
+        TableRow friendTable = findViewById(R.id.TableRowPhoto);
+
+
+        searchFriend = findViewById(R.id.search_friend);
+        searchFriend.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                // 입력받은 문자열 처리
+                for (int i = 0; i < list.size(); i++) {
+                    friendBtn[i].setVisibility(View.GONE);
+                    friendName[i].setVisibility(View.GONE);
+                }
+
+
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).equals(s)) {
+                        String name = list.get(i);
+                        friendBtn[i].setVisibility(View.VISIBLE); //친구 목록 버튼 보이게
+                        friendName[i].setVisibility(View.VISIBLE); //친구 목록 텍스트 보이게
+
+
+                        friendBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(HomeActivity.this, FriendSendActivity.class);
+                                intent.putExtra("name", name); //친구 이름 전달
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                }
+
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                // 입력란의 문자열이 바뀔 때 처리
+                if (s.equals("")) {
+
+                    for (int i = 0; i < list.size(); i++) { //친구 수 만큼 반복
+                        String name = list.get(i);
+                        friendBtn[i].setVisibility(View.VISIBLE); //친구 목록 버튼 보이게
+                        friendName[i].setVisibility(View.VISIBLE); //친구 목록 텍스트 보이게
+
+                        friendName[i].setText(name); //친구 이름 목록에 띄우기
+
+
+                        friendBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(HomeActivity.this, FriendSendActivity.class);
+                                intent.putExtra("name", name); //친구 이름 전달
+                                startActivity(intent);
+                            }
+                        });
+                    }
+
+
+
+                }
+                return false;
+            }
+        });
 
 
     }
