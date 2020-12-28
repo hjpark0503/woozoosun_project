@@ -3,6 +3,7 @@ package com.example.woozoosun_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -41,6 +42,18 @@ public class HomeActivity extends AppCompatActivity {
 
         textViewName =findViewById(R.id.textViewName);
         textViewName.setText(userName+" 님의 우주선");
+
+        /*
+        //new_list 띄우기방법
+        Store_Image_DB test = new Store_Image_DB();
+        test.start();
+        while(test.flag == false){}
+        test.flag = false;
+        List<String> name = test.name; //제품이름
+        List<String> price = test.price; //가격
+        List<Bitmap> image = test.image; //사진
+        //인덱스별로 제품 똑같음!
+         */
 
         /*
         //ID_check 회원가입시 id 중복 check

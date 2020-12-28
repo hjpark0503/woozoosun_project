@@ -56,7 +56,7 @@ public class FriendSendActivity extends AppCompatActivity {
 
         for(int i=0; i<3; i++){ //주소는 최대 3개까지
             String address = addressList.get(i);
-            System.out.println("주소"+address);
+            System.out.println("주소 : "+address);
             Log.d("주소",address);
             friendAddressBtn[i].setVisibility(View.VISIBLE);
             friendAddressBtn[i].setText(address);
