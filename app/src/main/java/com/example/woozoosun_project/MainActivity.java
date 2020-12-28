@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 Login_DB test = new Login_DB(userId, userPw);
                 test.execute(); //이거 꼭 해줘야 디비 데이터랑 비교가능
                 while(test.flag == false){}
+                test.flag = false;
                 userName = test.get_name(); //로그인한 유저 이름 => 성공시 이름, 실패시 null
                 System.out.println("사용자 유저 이름"+userName);
 

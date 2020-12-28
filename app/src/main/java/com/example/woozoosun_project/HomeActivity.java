@@ -86,6 +86,7 @@ public class HomeActivity extends AppCompatActivity {
         Return_info_DB info = new Return_info_DB(userName); //사용자 정보 객체 생성
         info.start();
         while(info.flag == false){}
+        info.flag = false;
         List<String> addressList = info.get_address(); //리스트로 리턴 됨 .get(0~2)
 
 

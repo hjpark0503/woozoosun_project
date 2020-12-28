@@ -47,6 +47,7 @@ public class FriendSendActivity extends AppCompatActivity {
         Return_info_DB friendInfo = new Return_info_DB(name); //사용자 정보 객체 생성
         friendInfo.start();
         while(friendInfo.flag == false){}
+        friendInfo.flag = false;
         List<String> addressList = friendInfo.get_address(); //리스트로 리턴 됨 .get(0~2)
 
 

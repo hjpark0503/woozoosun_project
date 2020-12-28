@@ -133,6 +133,7 @@ public class JoinActivity extends AppCompatActivity {
         ID_check idCheck = new ID_check(id);
         idCheck.execute();
         while(idCheck.flag == false){}
+        idCheck.flag = false;
         String result = idCheck.result;
 
         if(result.equals("error")){
