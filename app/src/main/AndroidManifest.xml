@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.woozoosun_project">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,10 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Woozoosun_project"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ItemActivity"></activity>
         <activity android:name=".JoinActivity" />
         <activity android:name=".SearchIDActivity" />
         <activity android:name=".SearchPWActivity" />
-        <activity android:name=".UserAddressActivity"></activity>
+        <activity android:name=".UserAddressActivity" />
         <activity android:name=".FriendSendActivity" />
         <activity android:name=".HomeActivity" />
         <activity
@@ -29,5 +28,7 @@
         </activity>
         <activity android:name=".MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
