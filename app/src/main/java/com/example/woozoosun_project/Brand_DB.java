@@ -19,27 +19,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Store_Image_DB extends Thread{
+public class Brand_DB extends Thread{
 
 
     boolean flag = false;
     List<String> name = new ArrayList();
-    List<String> price = new ArrayList();
-    List<String> list3 = new ArrayList();
-    List<Bitmap> image = new ArrayList<>();
+    List<Integer> id = new ArrayList();
 
     public void run(){
         try {
-            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/store/new_item.php");
+            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/brand.php");
             friends(json.toString());
-            for(int i = 0; list3.size() > i ; i++){
-                URL url = new URL("http://49.50.165.159/woozoosun"+list3.get(i));
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setDoOutput(true);
-                conn.connect();
-                InputStream is = conn.getInputStream();
-                image.add(BitmapFactory.decodeStream(is));
-            }
             flag = true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,11 +58,9 @@ public class Store_Image_DB extends Thread{
             for(int i=0; i < jsonArray.length(); i++){
                 JSONObject jsonob = jsonArray.getJSONObject(i);
                 String item = jsonob.getString("name");
-                String item2 = jsonob.getString("price");
-                String item3 = jsonob.getString("address");
+                int item2 = jsonob.getInt("id");
                 name.add(item);
-                price.add(item2);
-                list3.add(item3);
+                id.add(item2);
             }
         } catch (JSONException e) {
             e.printStackTrace();

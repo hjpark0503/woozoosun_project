@@ -56,6 +56,18 @@ public class HomeActivity extends AppCompatActivity {
         textViewName.setText(userName + " 님의 우주선");
 
         /*
+        //Brand명 가져오기
+        Brand_DB test = new Brand_DB();
+        test.start();
+        while(test.flag == false){}
+        test.flag = false;
+        List<String> name = test.name; //브랜드 이름
+        List<Integer> id = test.id; //브랜드 정보 볼 때 id값 넘겨줘야함
+         */
+
+
+
+        /*
         //new_list 띄우기방법
         Store_Image_DB test = new Store_Image_DB();
         test.start();
