@@ -51,8 +51,9 @@
                         android:textColor="#000000"/>
 
                     <LinearLayout
+                        android:id="@+id/best1Layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="60dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -62,13 +63,23 @@
                             android:text="1"
                             android:gravity="center"/>
 
-                        <Button
-                            android:id="@+id/bestBtn"
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
                             android:layout_width="match_parent"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/food_drawable"
-                            android:text="인사이드커피 바닐라라떼\n5,000원" />
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+
+
 
                     </LinearLayout>
 

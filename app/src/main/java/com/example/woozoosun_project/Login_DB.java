@@ -32,6 +32,35 @@ public class Login_DB extends AsyncTask<Void, Integer, Void> {
         return id;
     }
 
+    public Login_DB() {
+        super();
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+    }
+
+    @Override
+    protected void onCancelled(Void aVoid) {
+        super.onCancelled(aVoid);
+    }
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+    }
+
     @Override
     protected Void doInBackground(Void... unused) {
 

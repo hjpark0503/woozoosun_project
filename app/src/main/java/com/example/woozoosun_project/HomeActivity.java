@@ -55,6 +55,8 @@ public class HomeActivity extends AppCompatActivity {
         textViewName = findViewById(R.id.textViewName);
         textViewName.setText(userName + " 님의 우주선");
 
+        System.out.println("@넘어왔나?");
+
         /*
         //Brand명 가져오기
         Brand_DB test = new Brand_DB();
@@ -123,6 +125,8 @@ public class HomeActivity extends AppCompatActivity {
         addressBtn[1] = findViewById(R.id.addressBtn2);
         addressBtn[2] = findViewById(R.id.addressBtn3);
 
+        System.out.println("@넘어왔나?2");
+
         //Return_info_DB친구 정보 리턴
         Return_info_DB info = new Return_info_DB(userName); //사용자 정보 객체 생성
         info.start();
@@ -131,7 +135,7 @@ public class HomeActivity extends AppCompatActivity {
         info.flag = false;
         List<String> addressList = info.get_address(); //리스트로 리턴 됨 .get(0~2)
 
-
+        System.out.println("@넘어왔나?3");
         for (int i = 0; i < 3; i++) { //주소는 최대 3개까지
             String address = addressList.get(i);
             System.out.println("주소" + address);
@@ -168,37 +172,7 @@ public class HomeActivity extends AppCompatActivity {
         //list에 친구목록 담겨있음 사용자 id 외에 나머지는 바꿀필요 X
 
 
-        friendBtn = new ImageButton[4];
-        friendName = new TextView[4];
 
-        friendBtn[0] = findViewById(R.id.friendBtn1);
-        friendBtn[1] = findViewById(R.id.friendBtn2);
-        friendBtn[2] = findViewById(R.id.friendBtn3);
-        friendBtn[3] = findViewById(R.id.friendBtn4);
-
-        friendName[0] = findViewById(R.id.friendName1);
-        friendName[1] = findViewById(R.id.friendName2);
-        friendName[2] = findViewById(R.id.friendName3);
-        friendName[3] = findViewById(R.id.friendName4);
-
-
-        for (int i = 0; i < list.size(); i++) { //친구 수 만큼 반복
-            String name = list.get(i);
-            friendBtn[i].setVisibility(View.VISIBLE); //친구 목록 버튼 보이게
-            friendName[i].setVisibility(View.VISIBLE); //친구 목록 텍스트 보이게
-
-            friendName[i].setText(name); //친구 이름 목록에 띄우기
-
-
-            friendBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(HomeActivity.this, FriendSendActivity.class);
-                    intent.putExtra("name", name); //친구 이름 전달
-                    startActivity(intent);
-                }
-            });
-        }
 
         TableRow friendTable = findViewById(R.id.TableRowPhoto);
 
