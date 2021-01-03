@@ -51,7 +51,7 @@
                         android:textColor="#000000"/>
 
                     <LinearLayout
-                        android:id="@+id/best1Layout"
+                        android:id="@+id/bestLayout"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:orientation="horizontal">
@@ -65,7 +65,7 @@
 
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/bestImage"
                             android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
@@ -73,19 +73,18 @@
                             app:srcCompat="@drawable/food" />
 
                         <TextView
+                            android:id="@+id/bestText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="인사이드커피 바닐라라떼\n5,000원"
                             android:textColor="#000000"/>
-
-
-
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/bestLayout2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="60dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -95,18 +94,27 @@
                             android:text="2"
                             android:gravity="center"/>
 
-                        <Button
-                            android:id="@+id/bestBtn2"
-                            android:layout_width="match_parent"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/food_drawable"
-                            android:text="그레시헤이 초콜릿라떼\n4,500원" />
-                    </LinearLayout>
 
+                        <ImageView
+                            android:id="@+id/bestImage2"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/bestText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/bestLayout3"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="60dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -116,18 +124,27 @@
                             android:text="3"
                             android:gravity="center"/>
 
-                        <Button
-                            android:id="@+id/bestBtn3"
-                            android:layout_width="match_parent"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/food_drawable"
-                            android:text="자스민커피 매실차\n5,000원" />
-                    </LinearLayout>
 
+                        <ImageView
+                            android:id="@+id/bestImage3"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/bestText3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/bestLayout4"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="60dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -137,18 +154,28 @@
                             android:text="4"
                             android:gravity="center"/>
 
-                        <Button
-                            android:id="@+id/bestBtn4"
+
+                        <ImageView
+                            android:id="@+id/bestImage4"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/bestText4"
                             android:layout_width="match_parent"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/food_drawable"
-                            android:text="요거스빈 요거트스무디\n4,000원" />
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/bestLayout5"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="60dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -158,14 +185,24 @@
                             android:text="5"
                             android:gravity="center"/>
 
-                        <Button
-                            android:id="@+id/bestBtn5"
+
+                        <ImageView
+                            android:id="@+id/bestImage5"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/bestText5"
                             android:layout_width="match_parent"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/food_drawable"
-                            android:text="카페몬순 아메리카노\n2,500원" />
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
                     </LinearLayout>
+
 
                 </LinearLayout>
 

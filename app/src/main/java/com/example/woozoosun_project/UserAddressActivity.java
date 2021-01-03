@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,8 +23,9 @@ public class UserAddressActivity extends AppCompatActivity {
     List<String> price; //가격
     List<Bitmap> image; //사진
 
-    Button[] bestBtn;
-    Button[] newBtn;
+    TextView[] bestText;
+    LinearLayout[] bestLayout;
+    ImageView[] bestImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,45 +64,49 @@ public class UserAddressActivity extends AppCompatActivity {
         image = itemDB.image; //사진
         //인덱스별로 제품 똑같음!
 
+        bestLayout = new LinearLayout[5];
+        bestText = new TextView[5];
+        bestImage = new ImageView[5];
 
-        /*
-        bestBtn = new Button[5];
-        newBtn = new Button[5];
+        bestLayout[0] = findViewById(R.id.bestLayout);
+        bestLayout[1] = findViewById(R.id.bestLayout2);
+        bestLayout[2] = findViewById(R.id.bestLayout3);
+        bestLayout[3] = findViewById(R.id.bestLayout4);
+        bestLayout[4] = findViewById(R.id.bestLayout5);
 
-        bestBtn[0] = findViewById(R.id.bestBtn);
-        bestBtn[1] = findViewById(R.id.bestBtn2);
-        bestBtn[2] = findViewById(R.id.bestBtn3);
-        bestBtn[3] = findViewById(R.id.bestBtn4);
-        bestBtn[4] = findViewById(R.id.bestBtn5);
+        bestText[0] = findViewById(R.id.bestText);
+        bestText[1] = findViewById(R.id.bestText2);
+        bestText[2] = findViewById(R.id.bestText3);
+        bestText[3] = findViewById(R.id.bestText4);
+        bestText[4] = findViewById(R.id.bestText5);
 
-        newBtn[0] = findViewById(R.id.newBtn);
-        newBtn[1] = findViewById(R.id.newBtn2);
-        newBtn[2] = findViewById(R.id.newBtn3);
-        newBtn[3] = findViewById(R.id.newBtn4);
-        newBtn[4] = findViewById(R.id.newBtn5);
+        bestImage[0] = findViewById(R.id.bestImage);
+        bestImage[1] = findViewById(R.id.bestImage2);
+        bestImage[2] = findViewById(R.id.bestImage3);
+        bestImage[3] = findViewById(R.id.bestImage4);
+        bestImage[4] = findViewById(R.id.bestImage5);
 
 
-        //Best list의 버튼들
+        //Best list
         for (int i = 0; i < 5; i++) { //친구 수 만큼 반복
             String itemName = name.get(i);
             String itemPrice = price.get(i);
             Bitmap itemImage = image.get(i);
 
-
-            bestBtn[i].setText(itemName+"\n"+itemPrice);
-            bestBtn[i].setD
-            bestBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
+            bestImage[i].setImageBitmap(image.get(i)); //제품 이미지
+            bestText[i].setText(itemName+"\n"+itemPrice); //제품 이름과 가격
+            bestLayout[i].setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-
+                public void onClick(View view) {
                     Intent intent = new Intent(UserAddressActivity.this, ItemActivity.class);
-                   // intent.putExtra("name", name); //친구 이름 전달
+                    // intent.putExtra("name", name); //친구 이름 전달
                     startActivity(intent);
                 }
             });
+
         }
 
         //New list의 버튼들
-*/
+
     }
 }
