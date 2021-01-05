@@ -198,6 +198,8 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(HomeActivity.this, FriendSendActivity.class);
+                    intent.putExtra("name", name); //친구 이름 전달
+                    startActivity(intent);
                 }});
 
         }
