@@ -169,7 +169,38 @@ public class HomeActivity extends AppCompatActivity {
         while (friends.flag == false) {
         }
         list = friends.list;
+
+
         //list에 친구목록 담겨있음 사용자 id 외에 나머지는 바꿀필요 X
+
+        friendBtn = new ImageButton[4];
+        friendName = new TextView[4];
+
+        friendBtn[0] = findViewById(R.id.friendBtn1);
+        friendBtn[1] = findViewById(R.id.friendBtn2);
+        friendBtn[2] = findViewById(R.id.friendBtn3);
+        friendBtn[3] = findViewById(R.id.friendBtn4);
+
+        friendName[0] = findViewById(R.id.friendName1);
+        friendName[1] = findViewById(R.id.friendName2);
+        friendName[2] = findViewById(R.id.friendName3);
+        friendName[3] = findViewById(R.id.friendName4);
+
+        for (int i = 0; i < list.size(); i++) { //친구 수 만큼 반복
+            String name = list.get(i);
+            friendBtn[i].setVisibility(View.VISIBLE); //친구 목록 버튼 보이게
+            friendName[i].setVisibility(View.VISIBLE); //친구 목록 텍스트 보이게
+
+            friendName[i].setText(name); //친구 이름 목록에 띄우기
+
+
+            friendBtn[i].setOnClickListener(new View.OnClickListener() {  //i번째 친구 버튼 눌렀을 때
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(HomeActivity.this, FriendSendActivity.class);
+                }});
+
+        }
 
 
 
@@ -182,7 +213,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 // 입력받은 문자열 처리
+                System.out.println("친구 몇명? "+list.size());
                 for (int i = 0; i < list.size(); i++) {
+                    System.out.println("친구");
                     friendBtn[i].setVisibility(View.GONE);
                     friendName[i].setVisibility(View.GONE);
                 }
@@ -216,6 +249,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (s.equals("")) {
 
                     for (int i = 0; i < list.size(); i++) { //친구 수 만큼 반복
+
                         String name = list.get(i);
                         friendBtn[i].setVisibility(View.VISIBLE); //친구 목록 버튼 보이게
                         friendName[i].setVisibility(View.VISIBLE); //친구 목록 텍스트 보이게
