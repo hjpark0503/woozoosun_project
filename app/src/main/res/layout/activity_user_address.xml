@@ -226,41 +226,120 @@
                         android:text="NEW LIST"
                         android:textColor="#000000"/>
 
-                    <Button
-                        android:id="@+id/newBtn"
+                    <LinearLayout
+                        android:id="@+id/newLayout"
                         android:layout_width="match_parent"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/food_drawable"
-                        android:text="인사이드커피 바닐라라떼\n5,000원" />
-                    <Button
-                        android:id="@+id/newBtn2"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/newImage"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/newText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/newLayout2"
                         android:layout_width="match_parent"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/food_drawable"
-                        android:text="인사이드커피 바닐라라떼\n5,000원" />
-                    <Button
-                        android:id="@+id/newBtn3"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/newImage2"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/newText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/newLayout3"
                         android:layout_width="match_parent"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/food_drawable"
-                        android:text="인사이드커피 바닐라라떼\n5,000원" />
-                    <Button
-                        android:id="@+id/newBtn4"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/newImage3"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/newText3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/newLayout4"
                         android:layout_width="match_parent"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/food_drawable"
-                        android:text="인사이드커피 바닐라라떼\n5,000원" />
-                    <Button
-                        android:id="@+id/newBtn5"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/newImage4"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/newText4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/newLayout5"
                         android:layout_width="match_parent"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/food_drawable"
-                        android:text="인사이드커피 바닐라라떼\n5,000원" />
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/newImage5"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/food" />
+
+                        <TextView
+                            android:id="@+id/newText5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="인사이드커피 바닐라라떼\n5,000원"
+                            android:textColor="#000000"/>
+                    </LinearLayout>
 
 
                 </LinearLayout>

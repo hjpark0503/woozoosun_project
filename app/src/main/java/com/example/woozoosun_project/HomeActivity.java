@@ -204,7 +204,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-
         TableRow friendTable = findViewById(R.id.TableRowPhoto);
 
 
