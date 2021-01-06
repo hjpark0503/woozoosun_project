@@ -58,6 +58,19 @@ public class HomeActivity extends AppCompatActivity {
         System.out.println("@넘어왔나?");
 
         /*
+        //제품 정보
+        Item_Info_DB test = new Item_Info_DB(제품이름);
+        test.start();
+        while(test.flag == false){}
+        test.flag = false;
+        test.brand //브랜드 이름
+        test.price //가격
+        test.photo //사진
+        test.comment //설명
+        test.name // 제품이름(필요하면 사용)
+         */
+
+        /*
         //Brand명 가져오기
         Brand_DB test = new Brand_DB();
         test.start();

@@ -12,35 +12,37 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class New_item_DB extends Thread{
+public class Item_Info_DB extends Thread{
 
 
     boolean flag = false;
-    List<String> name = new ArrayList();
-    List<String> price = new ArrayList();
-    List<String> list3 = new ArrayList();
-    List<Bitmap> image = new ArrayList<>();
+    String name;
+    String price;
+    String photo_url;
+    String brand;
+    String comment;
+    Bitmap photo;
+
+    public Item_Info_DB(String name){
+        this.name = name;
+    }
 
 
     public void run(){
         try {
-            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/new_item.php");
+            JSONObject json = readJsonFromUrl("http://49.50.165.159/woozoosun/item_info.php?name="+name);
             friends(json.toString());
-            for(int i = 0; list3.size() > i ; i++){
-                URL url = new URL("http://49.50.165.159/woozoosun"+list3.get(i));
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setDoOutput(true);
-                conn.connect();
-                InputStream is = conn.getInputStream();
-                image.add(BitmapFactory.decodeStream(is));
-            }
+            URL url = new URL("http://49.50.165.159/woozoosun"+photo_url);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            photo = BitmapFactory.decodeStream(is);
             flag = true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,12 +70,14 @@ public class New_item_DB extends Thread{
             JSONArray jsonArray = jsonObject.getJSONArray("result");
             for(int i=0; i < jsonArray.length(); i++){
                 JSONObject jsonob = jsonArray.getJSONObject(i);
-                String item = jsonob.getString("name");
                 String item2 = jsonob.getString("price");
                 String item3 = jsonob.getString("address");
-                name.add(item);
-                price.add(item2);
-                list3.add(item3);
+                String item4 = jsonob.getString("brand");
+                String item5 = jsonob.getString("comment");
+                price = item2;
+                photo_url = item3;
+                brand = item4;
+                comment = item5;
 
             }
         } catch (JSONException e) {
