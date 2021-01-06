@@ -203,7 +203,7 @@ public class HomeActivity extends AppCompatActivity {
                 }});
 
         }
-
+        System.out.println(list);
 
 
         TableRow friendTable = findViewById(R.id.TableRowPhoto);

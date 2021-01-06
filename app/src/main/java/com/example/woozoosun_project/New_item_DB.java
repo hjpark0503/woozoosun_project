@@ -27,6 +27,7 @@ public class New_item_DB extends Thread{
     List<String> price = new ArrayList();
     List<String> list3 = new ArrayList();
     List<Bitmap> image = new ArrayList<>();
+    List<String> brand = new ArrayList();
 
     public void run(){
         try {
@@ -70,9 +71,11 @@ public class New_item_DB extends Thread{
                 String item = jsonob.getString("name");
                 String item2 = jsonob.getString("price");
                 String item3 = jsonob.getString("address");
+                String item4 = jsonob.getString("brand");
                 name.add(item);
                 price.add(item2);
                 list3.add(item3);
+                brand.add(item4);
             }
         } catch (JSONException e) {
             e.printStackTrace();
