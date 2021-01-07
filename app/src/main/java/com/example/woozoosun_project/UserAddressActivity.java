@@ -99,15 +99,9 @@ public class UserAddressActivity extends AppCompatActivity {
             bestLayout[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   // ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                   // itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                   // byte[] itemImageBytes = stream.toByteArray();
 
                     Intent intent = new Intent(UserAddressActivity.this, ItemActivity.class);
                     intent.putExtra("itemName", itemName);
-                    intent.putExtra("itemPrice", itemPrice);
-                    //intent.putExtra("itemImage", itemImage); //바로 보내면 용량이 커서 에러남
-                    //intent.putExtra("itemImageBytes", itemImageBytes);
                     startActivity(intent);
                 }
             });
@@ -149,15 +143,8 @@ public class UserAddressActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    //ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    //itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    //byte[] itemImageBytes = stream.toByteArray();
-
                     Intent intent = new Intent(UserAddressActivity.this, ItemActivity.class);
                     intent.putExtra("itemName", itemName);
-                    intent.putExtra("itemPrice", itemPrice);
-                    //intent.putExtra("itemImage", itemImage); //바로 보내면 용량이 커서 에러남
-                    //intent.putExtra("itemImageBytes", itemImageBytes);
                     startActivity(intent);
                 }
             });

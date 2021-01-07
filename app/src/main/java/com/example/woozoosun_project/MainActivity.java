@@ -30,42 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                userId = editTextPersonName.getText().toString(); //사용자가 입력한 아이디
-                System.out.println("@사용자 입력 아이디"+userId);
-
-                userPw = editTextPassword.getText().toString(); //사용자가 입력한 비밀번호
-                System.out.println("@사용자 입력 비밀번호"+userPw);
-
-                //Login_DB 로그인
-                Login_DB test = new Login_DB(userId, userPw);
-                test.execute(); //이거 꼭 해줘야 디비 데이터랑 비교가능
-
-                while(test.flag == false){}
-                test.flag = false;
-                userName = test.get_name(); //로그인한 유저 이름 => 성공시 이름, 실패시 null
-                System.out.println("@사용자 유저 이름"+userName);
-                System.out.println("@여긴가1");
-
-                if(userName != null){ //로그인 성공하면
-                    Log.d("@유저이름", userName);
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                    intent.putExtra("userId", userId); //사용자 아이디와 함께 화면전환
-                    intent.putExtra("userName", userName); //사용자 이름과 함께 화면 전환
-                    startActivity(intent);
-
-                    finish();
-                    System.out.println("@여긴가4");
-
-                }
-                else{ //로그인 실패하면
-                    Toast.makeText(getApplicationContext(), "입력정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
-                    //토스트 메세지 띄우기
-                }
-                System.out.println("@여긴가2");
-                //id, pw 길이 검사 등은 다 코드에서 해야함
-                //Login_DB 클래스는 오로지 id, pw를 디비와 비교해서 일치하는지 안하는지만 check
-                //로그인 성공 실패 확인은 get_name()==null 이면 실패, 아니면 성공임(성공하면 이름이 리턴됨)
+                test();
 
             }
         });
@@ -96,5 +61,44 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    void test(){
+
+        userId = editTextPersonName.getText().toString(); //사용자가 입력한 아이디
+        System.out.println("@사용자 입력 아이디"+userId);
+
+        userPw = editTextPassword.getText().toString(); //사용자가 입력한 비밀번호
+        System.out.println("@사용자 입력 비밀번호"+userPw);
+
+        //Login_DB 로그인
+        Login_DB test = new Login_DB(userId, userPw);
+        test.execute(); //이거 꼭 해줘야 디비 데이터랑 비교가능
+
+        while(test.flag == false){}
+        test.flag = false;
+        userName = test.get_name(); //로그인한 유저 이름 => 성공시 이름, 실패시 null
+        System.out.println("@사용자 유저 이름"+userName);
+        System.out.println("@여긴가1");
+
+        if(userName != null){ //로그인 성공하면
+            Log.d("@유저이름", userName);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            intent.putExtra("userId", userId); //사용자 아이디와 함께 화면전환
+            intent.putExtra("userName", userName); //사용자 이름과 함께 화면 전환
+            startActivity(intent);
+
+            finish();
+            System.out.println("@여긴가4");
+
+        }
+        else{ //로그인 실패하면
+            Toast.makeText(getApplicationContext(), "입력정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
+            //토스트 메세지 띄우기
+        }
+        System.out.println("@여긴가2");
+        //id, pw 길이 검사 등은 다 코드에서 해야함
+        //Login_DB 클래스는 오로지 id, pw를 디비와 비교해서 일치하는지 안하는지만 check
+        //로그인 성공 실패 확인은 get_name()==null 이면 실패, 아니면 성공임(성공하면 이름이 리턴됨)
     }
 }

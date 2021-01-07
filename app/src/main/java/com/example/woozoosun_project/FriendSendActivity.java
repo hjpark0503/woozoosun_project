@@ -43,12 +43,13 @@ public class FriendSendActivity extends AppCompatActivity {
         selectFriendName = findViewById(R.id.selectFriendName);
         selectFriendName.setText("친구 "+ friendName+" 님의 우주선");
 
+        /*
         //Return_info_DB친구 정보 리턴
         Return_info_DB info = new Return_info_DB(friendName); //친구 정보 객체 생성
         info.start();
         while(info.flag == false){}
         addressList = info.get_address(); //리스트로 리턴 됨 .get(0~2) 친구의 주소목록
-
+        */
 
         friendAddressBtn = new Button[3];
         friendAddressBtn[0] = findViewById(R.id.friendAddressBtn1);
@@ -60,7 +61,7 @@ public class FriendSendActivity extends AppCompatActivity {
         friendInfo.start();
         while(friendInfo.flag == false){}
         friendInfo.flag = false;
-        List<String> addressList = friendInfo.get_address(); //리스트로 리턴 됨 .get(0~2)
+        addressList = friendInfo.get_address(); //리스트로 리턴 됨 .get(0~2)
 
 
         friendAddress = findViewById(R.id.friendAddress);
@@ -132,15 +133,8 @@ public class FriendSendActivity extends AppCompatActivity {
             bestLayout[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    // itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    // byte[] itemImageBytes = stream.toByteArray();
-
                     Intent intent = new Intent(FriendSendActivity.this, ItemActivity.class);
                     intent.putExtra("itemName", itemName);
-                    intent.putExtra("itemPrice", itemPrice);
-                    //intent.putExtra("itemImage", itemImage); //바로 보내면 용량이 커서 에러남
-                    //intent.putExtra("itemImageBytes", itemImageBytes);
                     startActivity(intent);
                 }
             });
@@ -182,15 +176,9 @@ public class FriendSendActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    //ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    //itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    //byte[] itemImageBytes = stream.toByteArray();
-
                     Intent intent = new Intent(FriendSendActivity.this, ItemActivity.class);
                     intent.putExtra("itemName", itemName);
                     intent.putExtra("itemPrice", itemPrice);
-                    //intent.putExtra("itemImage", itemImage); //바로 보내면 용량이 커서 에러남
-                    //intent.putExtra("itemImageBytes", itemImageBytes);
                     startActivity(intent);
                 }
             });

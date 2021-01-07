@@ -13,8 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ItemActivity extends AppCompatActivity {
-    String itemName;
-    String itemPrice;
+    String itemName, itemPrice, itemBrand, itemInfo;
     Bitmap itemImage;
 
     ImageView topImage, bottomImage;
@@ -29,10 +28,6 @@ public class ItemActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         itemName = intent.getStringExtra("itemName");
-        itemPrice = intent.getStringExtra("itemPrice");
-
-        //byte[] itemImageBytes = intent.getByteArrayExtra("itemImageBytes");
-       // itemImage = BitmapFactory.decodeByteArray(itemImageBytes, 0, itemImageBytes.length);
 
         topImage = findViewById(R.id.topImage);
         bottomImage = findViewById(R.id.bottomImage);
@@ -42,10 +37,26 @@ public class ItemActivity extends AppCompatActivity {
         itemPriceText = findViewById(R.id.itemPriceText);
         itemInfoText = findViewById(R.id.itemInfoText);
 
-        itemNameText.setText(itemName);
-        itemPriceText.setText(itemPrice+"원");
-        //topImage.setImageBitmap(itemImage); //메인 제품 이미지
-        // bottomImage.setImageBitmap(itemImage); //아래 제품 이미지
+
+        //제품 정보
+        Item_Info_DB test = new Item_Info_DB(itemName);
+        test.start();
+        while(test.flag == false){}
+        test.flag = false;
+        itemBrand = test.brand; //브랜드 이름
+        itemPrice = test.price; //가격
+        itemImage = test.photo; //사진
+        itemInfo = test.comment; //설명
+        //test.name // 제품이름(필요하면 사용)
+
+
+
+        itemNameText.setText(itemName); //제품 이름
+        itemPriceText.setText(itemPrice+"원"); //제품 가격
+        itemBrandText.setText(itemBrand); //제품 브랜드
+        itemInfoText.setText(itemInfo); //제품 설명
+        topImage.setImageBitmap(itemImage); //메인 제품 이미지
+        bottomImage.setImageBitmap(itemImage); //아래 제품 이미지
 
 
         itemHeartBtn = findViewById(R.id.itemHeartBtn);

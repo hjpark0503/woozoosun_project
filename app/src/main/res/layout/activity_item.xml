@@ -108,21 +108,36 @@
                     android:background="#161B73"/>
 
                 <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="[제품 설명]"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+                <TextView
                     android:id="@+id/itemInfoText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="제품 설명"
+                    android:layout_margin="18dp"
+                    android:text="-"
                     android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="20dp" />
-
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="[제품 사진]"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
                 <ImageView
                     android:id="@+id/bottomImage"
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:src="@drawable/image" />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sandwich" />
             </LinearLayout>
 
         </LinearLayout>
