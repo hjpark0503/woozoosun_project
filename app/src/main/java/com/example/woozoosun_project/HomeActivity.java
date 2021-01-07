@@ -58,6 +58,19 @@ public class HomeActivity extends AppCompatActivity {
         System.out.println("@넘어왔나?");
 
         /*
+        //브랜드 정보
+        Brand_info_DB test = new Brand_info_DB(브랜드 id (int 형으로 전송));
+        test.start();
+        while(test.flag == false){}
+        test.flag = false;
+        test.name //브랜드 이름
+        test.address //브랜드 주소
+        test.comment //브랜드 소개
+         */
+
+
+
+        /*
         //제품 정보
         Item_Info_DB test = new Item_Info_DB(제품이름);
         test.start();
@@ -79,7 +92,6 @@ public class HomeActivity extends AppCompatActivity {
         List<String> name = test.name; //브랜드 이름
         List<Integer> id = test.id; //브랜드 정보 볼 때 id값 넘겨줘야함
          */
-
 
 
         /*
