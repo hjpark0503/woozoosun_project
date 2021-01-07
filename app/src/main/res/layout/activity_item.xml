@@ -98,7 +98,7 @@
                         android:padding="8dp"
 
                         android:scaleType="fitCenter"
-                        android:src="@drawable/heart2" />
+                        android:src="@drawable/heartgray" />
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
